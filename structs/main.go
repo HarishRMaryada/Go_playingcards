@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 //struct to represent a person
 //firstname :string and lastname:string
@@ -13,17 +15,21 @@ type contactInfo struct {
 type person struct {
 	firstName string
 	lastName  string
-	contact   contactInfo
+	contactInfo
 }
 
 func main() {
 	jim := person{
 		firstName: "Jim",
 		lastName:  "Party",
-		contact: contactInfo{
+		contactInfo: contactInfo{
 			email:   "jim@test.com",
 			zipcode: 99889,
 		},
 	}
-	fmt.Printf("%+v", jim)
+	jim.print()
+}
+
+func (p person) print() {
+	fmt.Printf("%+v", p)
 }
