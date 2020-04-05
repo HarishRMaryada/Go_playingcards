@@ -4,19 +4,26 @@ import "fmt"
 
 //struct to represent a person
 //firstname :string and lastname:string
+//embedding contact struct
 
+type contactInfo struct {
+	email   string
+	zipcode int
+}
 type person struct {
 	firstName string
 	lastName  string
+	contact   contactInfo
 }
 
 func main() {
-	// alex := person{firstName: "Alex", lastName: "Anderson"}
-	// fmt.Println(alex.firstName, alex.lastName)
-	var alex person
-	alex.firstName = "alex"
-	alex.lastName = "Anderson"
-	fmt.Println(alex) //{alex Anderson}
-	fmt.Printf("%v%v", alex.firstName, alex.lastName)
-	fmt.Printf("%+v", alex) //{firstName:alex lastName:Anderson}
+	jim := person{
+		firstName: "Jim",
+		lastName:  "Party",
+		contact: contactInfo{
+			email:   "jim@test.com",
+			zipcode: 99889,
+		},
+	}
+	fmt.Printf("%+v", jim)
 }
